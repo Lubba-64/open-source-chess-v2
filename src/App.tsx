@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { Vector2 } from "./Game/Core/Vector";
+import { BoardVisual } from "./Game/Frontend/BoardVisual";
+import { makeRectLayout } from "./Game/Logic/Layout";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh",
+      }}
+    >
+      <BoardVisual
+        backgroundColor="#000000"
+        layout={makeRectLayout(new Vector2(8, 8))}
+        pattern={(position: Vector2, empty: boolean) => {
+          let main =
+            (position.x + position.y) % 2 === 0 ? "#000000" : "#ffffff";
+          return empty ? "#345345" : main;
+        }}
+        boardSize={{ size: new Vector2(50, 50), unit: "vmin" }}
+        debugCellIDs
+      />
     </div>
   );
 }
 
 export default App;
+
+/* eslint-disable */
+const fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
