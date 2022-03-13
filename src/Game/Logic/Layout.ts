@@ -1,8 +1,8 @@
 import { Vector2 } from "../Core/Vector";
-import { Piece } from "./Piece";
+import { ColoredPiece } from "./Piece";
 
 export interface PositionMetadata {
-  piece: Piece;
+  piece: ColoredPiece;
   position: Vector2;
 }
 

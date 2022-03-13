@@ -32,10 +32,7 @@ export const BoardVisual = (props: Props) => {
   for (let i = 0; i < props.layout.size.Area(); i++) positions.push(i);
 
   const pattern = (pos: Vector2) => {
-    return props.pattern(
-      pos,
-      pos.ContainedIn(props.layout.metadata?.map((meta) => meta.position) ?? [])
-    );
+    return props.pattern(pos, !pos.ContainedIn(props.layout.validPositions));
   };
 
   const metadata = (pos: Vector2) => {

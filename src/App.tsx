@@ -1,7 +1,25 @@
 import React from "react";
 import { Vector2 } from "./Game/Core/Vector";
 import { ClassicBoardVisual } from "./Game/Frontend/ClassicChess";
+import {
+  CompilePieces,
+  CompiledPiecesRecord,
+} from "./Game/Logic/CompilePieces";
+import { pieces } from "./Game/Logic/Pieces";
+import { ChessLayout, makeRectLayout } from "./Game/Logic/Layout";
+
+const gamePieces: CompiledPiecesRecord = CompilePieces(pieces, [
+  { r: 255, g: 255, b: 255 },
+  { r: 0, g: 0, b: 0 },
+]);
+
+const startingLayout: ChessLayout = {
+  ...makeRectLayout(new Vector2(8, 8)),
+  metadata: [{ position: new Vector2(0, 0), piece: gamePieces["Rook.000000"] }],
+};
+
 function App() {
+  console.log(gamePieces);
   return (
     <div
       style={{
@@ -20,6 +38,7 @@ function App() {
           borderWidth: "1vmin",
         }}
         debug
+        layout={startingLayout}
       />
     </div>
   );

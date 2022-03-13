@@ -7,7 +7,7 @@ const getDebugCellID = (
   unit: string
 ) => {
   return shouldDebug ? (
-    <p style={{ color: "grey", fontSize: `2${unit}` }}>{pos}</p>
+    <p style={{ color: "red", fontSize: `2${unit}` }}>{pos}</p>
   ) : (
     ""
   );
