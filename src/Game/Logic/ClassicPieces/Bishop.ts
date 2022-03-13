@@ -1,4 +1,4 @@
-import { BlockType, Piece } from "../../Piece";
+import { BlockType, Piece } from "../Piece";
 
 export const Bishop: Piece = {
   blockType: BlockType.Line,

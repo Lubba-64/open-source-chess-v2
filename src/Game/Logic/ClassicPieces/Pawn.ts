@@ -1,8 +1,8 @@
 import { BlockType, Piece } from "../Piece";
 
-export const None: Piece = {
-  blockType: BlockType.None,
+export const Pawn: Piece = {
+  blockType: BlockType.Capture,
   getAttacks: () => {},
   getPositions: () => {},
-  name: "None",
+  name: "Pawn",
 };

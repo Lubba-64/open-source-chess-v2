@@ -1,10 +1,9 @@
-import { Bishop } from "./Pieces/ClassicPieces/Bishop";
-import { King } from "./Pieces/ClassicPieces/King";
-import { Knight } from "./Pieces/ClassicPieces/Knight";
-import { None } from "./Pieces/None";
-import { Pawn } from "./Pieces/ClassicPieces/Pawn";
-import { Queen } from "./Pieces/ClassicPieces/Queen";
-import { Rook } from "./Pieces/ClassicPieces/Rook";
+import { Bishop } from "./ClassicPieces/Bishop";
+import { King } from "./ClassicPieces/King";
+import { Knight } from "./ClassicPieces/Knight";
+import { Pawn } from "./ClassicPieces/Pawn";
+import { Queen } from "./ClassicPieces/Queen";
+import { Rook } from "./ClassicPieces/Rook";
 
 import { Piece } from "./Piece";
-export const pieces: Piece[] = [Knight, Bishop, King, Queen, None, Pawn, Rook];
+export const pieces: Piece[] = [Knight, Bishop, King, Queen, Pawn, Rook];
