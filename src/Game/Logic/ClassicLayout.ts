@@ -1,4 +1,4 @@
-import { Iteration } from "../Core/Range";
+import { Iteration } from "../Core/Iteration";
 import { Vector2 } from "../Core/Vector";
 import { CompileClassicPieces } from "./CompilePieces";
 import { ChessLayout, makeRectLayout } from "./Layout";
