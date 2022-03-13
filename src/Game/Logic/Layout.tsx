@@ -8,12 +8,12 @@ export interface PositionMetadata {
 
 export interface ChessLayout {
   size: Vector2;
-  pieces: PositionMetadata[];
+  metadata: PositionMetadata[];
   validPositions: Vector2[];
 }
 
 export function makeRectLayout(size: Vector2): ChessLayout {
-  let layout: ChessLayout = { validPositions: [], pieces: [], size: size };
+  let layout: ChessLayout = { validPositions: [], metadata: [], size: size };
   for (let x = 0; x < size.x; x++) {
     for (let y = 0; y < size.y; y++) {
       layout.validPositions.push(new Vector2(x, y));

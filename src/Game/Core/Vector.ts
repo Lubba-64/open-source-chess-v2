@@ -31,6 +31,15 @@ export class Vector2 {
     });
     return contains;
   }
+  // index of this vector in a collection
+  IndexOf(list: Vector2[]): number {
+    for (let i = 0; i < list.length; i++) {
+      if (this.Equal(list[i])) {
+        return i;
+      }
+    }
+    return -1;
+  }
   // adds two vectors
   Add(vec: Vector2): Vector2 {
     return new Vector2(vec.x + this.x, vec.y + this.y);

@@ -1,6 +1,7 @@
 import React from "react";
 import { Vector2 } from "./Game/Core/Vector";
 import { BoardVisual } from "./Game/Frontend/BoardVisual";
+import { Cell } from "./Game/Frontend/Cell";
 import { makeRectLayout } from "./Game/Logic/Layout";
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           return empty ? "#345345" : main;
         }}
         boardSize={{ size: new Vector2(50, 50), unit: "vmin" }}
-        debugCellIDs
+        getCellGUI={Cell}
       />
     </div>
   );
