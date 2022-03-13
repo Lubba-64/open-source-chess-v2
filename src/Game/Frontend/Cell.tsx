@@ -14,6 +14,16 @@ const getDebugCellID = (
 };
 
 export const Cell = (props: DefaultCellProps) => {
+  let cellContents;
+  if (props.metadata !== undefined) {
+    cellContents = (
+      <img
+        src={props.metadata.piece.imgPath}
+        alt="!"
+        style={{ width: "75%", height: "75%" }}
+      />
+    );
+  }
   return (
     <div
       style={{
@@ -27,6 +37,7 @@ export const Cell = (props: DefaultCellProps) => {
       key={props.key}
     >
       {props.debug ? getDebugCellID(props.key, props.debug, props.unit) : ""}
+      {cellContents ?? ""}
     </div>
   );
 };
