@@ -10,6 +10,9 @@ export class Vector2 {
     this.x = x;
     this.y = y;
   }
+  Fmt(unit: string): { x: string; y: string } {
+    return { x: `${this.x}${unit}`, y: `${this.y}${unit}` };
+  }
   // takes a vector in and outputs the vector rounded to -1, 0, or 1 (very small use case but its good for some specific circumstances)
   IntNormalize(): Vector2 {
     return new Vector2(
@@ -42,7 +45,7 @@ export class Vector2 {
   }
   // adds two vectors
   Add(vec: Vector2): Vector2 {
-    return new Vector2(vec.x + this.x, vec.y + this.y);
+    return new Vector2(this.x + vec.x, this.y + vec.y);
   }
   // adds a vector to this vector
   AddSelf(vec: Vector2): void {
@@ -51,7 +54,7 @@ export class Vector2 {
   }
   // subtracts two vectors
   Subtract(vec: Vector2): Vector2 {
-    return new Vector2(vec.x - this.x, vec.y - this.y);
+    return new Vector2(this.x - vec.x, this.y - vec.y);
   }
   // subtracts a vector from this vector
   SubtractSelf(vec: Vector2): void {

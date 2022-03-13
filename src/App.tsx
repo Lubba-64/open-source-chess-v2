@@ -1,8 +1,6 @@
 import React from "react";
 import { Vector2 } from "./Game/Core/Vector";
-import { BoardVisual } from "./Game/Frontend/BoardVisual";
-import { Cell } from "./Game/Frontend/Cell";
-import { makeRectLayout } from "./Game/Logic/Layout";
+import { ClassicBoardVisual } from "./Game/Frontend/ClassicChess";
 function App() {
   return (
     <div
@@ -14,16 +12,14 @@ function App() {
         height: "100vh",
       }}
     >
-      <BoardVisual
-        backgroundColor="#000000"
-        layout={makeRectLayout(new Vector2(8, 8))}
-        pattern={(position: Vector2, empty: boolean) => {
-          let main =
-            (position.x + position.y) % 2 === 0 ? "#000000" : "#ffffff";
-          return empty ? "#345345" : main;
+      <ClassicBoardVisual
+        size={{ size: new Vector2(50, 50), unit: "vmin" }}
+        style={{
+          borderStyle: "solid",
+          borderColor: "grey",
+          borderWidth: "1vmin",
         }}
-        boardSize={{ size: new Vector2(50, 50), unit: "vmin" }}
-        getCellGUI={Cell}
+        debug
       />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { Vector2 } from "../Core/Vector";
 import { ChessLayout, PositionMetadata } from "../Logic/Layout";
+import { pattern } from "./patterns";
 
 export interface DefaultCellProps {
   position: Vector2;
@@ -8,14 +9,18 @@ export interface DefaultCellProps {
   key: number;
   metadata?: PositionMetadata;
   debug?: boolean;
+  unit: string;
 }
 
+export type boardVisualSizeProps = { size: Vector2; unit: string };
+
 interface Props {
-  pattern: (position: Vector2, empty: boolean) => string;
+  pattern: pattern;
   layout: ChessLayout;
   backgroundColor: string;
-  boardSize: { size: Vector2; unit: string };
+  boardSize: boardVisualSizeProps;
   getCellGUI: (props: DefaultCellProps) => React.ReactNode;
+  debug?: boolean;
 }
 
 const GetPositionFromIndex = (position: number, size: Vector2) => {
@@ -57,7 +62,8 @@ export const BoardVisual = (props: Props) => {
           defaultColor: pattern(currentPos),
           key: x,
           metadata: metadata(currentPos),
-          debug: true,
+          debug: props.debug,
+          unit: props.boardSize.unit,
         });
       })}
     </div>
