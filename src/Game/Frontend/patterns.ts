@@ -11,7 +11,7 @@ export const ClassicPattern = (
   empty: boolean,
   colors?: { first: string; second: string; empty: string }
 ) => {
-  let emptyColor = colors === undefined ? "#345345" : colors["empty"];
+  let emptyColor = colors === undefined ? "grey" : colors["empty"];
   let first = colors === undefined ? "white" : colors["first"];
   let second = colors === undefined ? "black" : colors["second"];
 

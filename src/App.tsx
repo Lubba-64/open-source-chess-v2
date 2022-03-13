@@ -13,7 +13,7 @@ function App() {
       }}
     >
       <ClassicBoardVisual
-        size={{ size: new Vector2(50, 50), unit: "vmin" }}
+        size={{ size: new Vector2(75, 75), unit: "vmin" }}
         style={{
           borderStyle: "solid",
           borderColor: "grey",
