@@ -1,20 +1,22 @@
 import React from "react";
-import { BoardVisual, boardVisualSizeProps } from "./BoardVisual";
+import { BoardVisual, ChessBoardVisualSizeProp } from "./BoardVisual";
 import { Cell } from "./Cell";
 import { ChessLayout } from "../Logic/Layout";
-import { ClassicPattern } from "./patterns";
+import { ClassicPattern } from "./Patterns";
+import { BoardControler } from "./BoardControler";
 
 interface Props {
-  size: boardVisualSizeProps;
+  size: ChessBoardVisualSizeProp;
   style?: React.CSSProperties;
   debug?: boolean;
   layout: ChessLayout;
 }
 
-export const ClassicBoardVisual = (props: Props) => {
+export const ClassicChessBoard = (props: Props) => {
   return (
     <div style={props.style}>
-      <BoardVisual
+      <BoardControler
+        boardVisual={BoardVisual}
         backgroundColor="#000000"
         layout={props.layout}
         pattern={ClassicPattern}

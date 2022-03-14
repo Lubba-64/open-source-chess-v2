@@ -1,9 +1,10 @@
 import React from "react";
 import { Vector2 } from "../Core/Vector";
 import { ChessLayout, PositionMetadata } from "../Logic/Layout";
-import { pattern } from "./patterns";
+import { pattern } from "./Patterns";
+import { GetPositionFromIndex } from "../Core/MathFuncs";
 
-export interface DefaultCellProps {
+export interface ChessBoardCellProps {
   position: Vector2;
   defaultColor: string;
   key: number;
@@ -12,22 +13,18 @@ export interface DefaultCellProps {
   unit: string;
 }
 
-export type boardVisualSizeProps = { size: Vector2; unit: string };
+export type ChessBoardVisualSizeProp = { size: Vector2; unit: string };
 
-interface Props {
+export interface ChessBoardVisualProps {
   pattern: pattern;
   layout: ChessLayout;
   backgroundColor: string;
-  boardSize: boardVisualSizeProps;
-  getCellGUI: (props: DefaultCellProps) => React.ReactNode;
+  boardSize: ChessBoardVisualSizeProp;
+  getCellGUI: (props: ChessBoardCellProps) => React.ReactNode;
   debug?: boolean;
 }
 
-const GetPositionFromIndex = (position: number, size: Vector2) => {
-  return new Vector2(position % size.x, Math.floor(position / size.y));
-};
-
-export const BoardVisual = (props: Props) => {
+export const BoardVisual = (props: ChessBoardVisualProps) => {
   let positions = [];
   for (let i = 0; i < props.layout.size.Area(); i++) positions.push(i);
 

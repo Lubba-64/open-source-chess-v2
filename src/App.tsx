@@ -1,6 +1,6 @@
 import React from "react";
 import { Vector2 } from "./Game/Core/Vector";
-import { ClassicBoardVisual } from "./Game/Frontend/ClassicChess";
+import { ClassicChessBoard } from "./Game/Frontend/ClassicChess";
 import { startingLayout } from "./Game/Logic/ClassicLayout";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         height: "100vh",
       }}
     >
-      <ClassicBoardVisual
+      <ClassicChessBoard
         size={{ size: new Vector2(75, 75), unit: "vmin" }}
         style={{
           borderStyle: "solid",

@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultCellProps } from "./BoardVisual";
+import { ChessBoardCellProps } from "./BoardVisual";
 
 const getDebugCellID = (
   pos: number,
@@ -13,7 +13,7 @@ const getDebugCellID = (
   );
 };
 
-export const Cell = (props: DefaultCellProps) => {
+export const Cell = (props: ChessBoardCellProps) => {
   let cellContents;
   if (props.metadata !== undefined) {
     cellContents = (
