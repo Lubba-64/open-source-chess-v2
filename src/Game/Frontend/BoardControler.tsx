@@ -1,23 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChessBoardVisualProps } from "./BoardVisual";
-import { Cursor } from "./Cursor";
+import { BoxedCursor } from "./BoxedCursor";
 
 interface Props extends ChessBoardVisualProps {
   boardVisual: (props: ChessBoardVisualProps) => React.ReactElement;
 }
 
 export const BoardControler = (props: Props) => {
-  const [OverElement, setOverElement] = useState(false);
-  return (
-    <div
-      onMouseEnter={() => {
-        setOverElement(true);
-      }}
-      onMouseLeave={() => {
-        setOverElement(false);
-      }}
-    >
-      <Cursor visible={OverElement}>{props.boardVisual({ ...props })}</Cursor>
-    </div>
-  );
+  return <BoxedCursor>{props.boardVisual({ ...props })}</BoxedCursor>;
 };
